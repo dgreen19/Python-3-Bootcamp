@@ -8,7 +8,7 @@ csv = pd.read_csv("/users/dgreen/Downloads/sianctapi-selected-observations-62852
 for id in csv["Sequence ID"]:
     if id[0] == "d":
         try:
-            for number in range(0,100):
+            for number in range(0,1000):
                 url = f"http://ids.si.edu/ids/deliveryService?id=emammal_image_{id}i{number}&max=1000"
                 ret = requests.get(url)
                 if ret.ok:
