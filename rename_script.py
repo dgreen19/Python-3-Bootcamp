@@ -1,32 +1,25 @@
-import pandas as pd
-import requests
-from requests import request
-import numpy as np
+import shutil
 import os
 import os.path
-import PIL
-from PIL import Image
-from zipfile import ZipFile
-from math import sqrt
-import cv2
-import numpy as np
-import glob
 from os.path import isfile, join
-import moviepy.video.io.ImageSequenceClip
 
 ##### FOR MASS RENAMING IMAGES CAPTURED TO READABLE STRINGS#####
 def main():
+    
 
-    folder = "/Users/dgreen/Docs/rename_test"
+    folder = "F:\\Videos\\Ghost in the Shell SAC\\Season 1"
     for count, filename in enumerate(os.listdir(folder)):
-        dst = f"Ursus americanus_{filename}"
+        dst = f"Episode - {str(count + 1)}.mkv"
         # foldername/filename, if .py file is outside folder
         src = f"{folder}/{filename}"
         dst = f"{folder}/{dst}"
 
         # rename() function will
         # rename all the files
-        os.rename(src, dst)
+        # os.rename(src, dst) does not work on Windows OS!
+        newFileName=shutil.move(src, dst)
+
+        print ("The renamed file has the name:",newFileName)
 
 
 # Driver Code
