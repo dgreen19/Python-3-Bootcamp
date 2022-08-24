@@ -29,14 +29,15 @@ def mergeArrays(arr1, arr2) -> list:
     print(arr2)
     return results
 
-print(mergeArrays([100,200], [1,2,3,5,6]))
+# print(mergeArrays([100,200], [1,2,3,5,6]))
 
-mergedArrays = mergeArrays()
+def mergeSort(arr: list) -> list:
+    if len(arr) <= 1:
+        return arr
+    mid = round(len(arr)/2)
+    left = mergeSort(arr.slice(0,mid))
+    right = mergeSort(arr.slice(mid))
+    return mergeArrays(left, right)
 
-def mergeSort(mergedArrays: list) -> list:
-    if len(mergedArrays) <= 1:
-        return mergedArrays
-     mid = round(len(mergedArrays)/2)
-     left = mergedArrays.slice(0,mid)
-     right
+print(mergeSort([1,2,4,7,100,234,119,5,8,222]))
     
